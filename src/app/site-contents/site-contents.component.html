@@ -1,0 +1,66 @@
+<div class="addButton">
+    <button mat-raised-button class="matButton" (click)="DisplayForm()">Add Image</button>
+</div>
+<div *ngIf="showForm" class="imageForm">
+    <mat-card class="matFormCard">
+        <mat-card-title class="matFormCardTitle">Enter Details</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="newImgForm" (ngSubmit)="AddImage(newImgForm.value)">
+                <mat-form-field>
+                    <mat-label>Image Name</mat-label>
+                    <input matInput placeholder="Logo.png" formControlName="ImageName" required>
+                </mat-form-field>
+                &nbsp;
+                <mat-form-field>
+                    <mat-label>Image Link</mat-label>
+                    <input matInput placeholder="https://www.repo.com/Logo.png" formControlName="ImageLink" required>
+                </mat-form-field>
+                <p>
+                    <button mat-raised-button type="submit" class="matSubmitButton">
+                        Submit
+                    </button>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+&nbsp;&nbsp;&nbsp;
+<div class="imageGallery">
+    <mat-card class="matGalleryCard">
+        <mat-card-title class="matGalleryCardTitle">Gallery</mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="search-gallery">
+                <mat-label>Search Image</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Logo" #input>
+            </mat-form-field>
+            <table mat-table [dataSource]="datasource" class="mat-elevation-z8" matSort>
+                <ng-container matColumnDef="ImageName" >
+                    <th mat-header-cell *matHeaderCellDef class="th-color">Image Name</th>
+                    <td mat-cell *matCellDef="let element">{{element.ImageName}}</td>
+                </ng-container>
+        
+                <ng-container matColumnDef="Created">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header >Created</th>
+                    <td mat-cell *matCellDef="let element">{{element.Created}}</td>
+                </ng-container>
+        
+                <ng-container matColumnDef="ImageLink">
+                    <th mat-header-cell *matHeaderCellDef>Image Link</th>
+                    <td mat-cell *matCellDef="let element">{{element.ImageLink}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="ImageView">
+                    <th mat-header-cell *matHeaderCellDef> Image View </th>
+                    <td mat-cell *matCellDef="let element"> <img [src]="element.ImageLink" /> </td>
+                  </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the search</td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>

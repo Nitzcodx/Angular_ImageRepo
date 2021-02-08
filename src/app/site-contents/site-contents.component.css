@@ -1,0 +1,48 @@
+.addButton{
+    padding-left: 7%;
+    padding-top: 2%;
+}
+.matButton{
+    background-color: mediumseagreen;
+    color: white;
+}
+.matFormCard{
+    background-color: mediumseagreen;
+    width: 30%;
+    margin-left: 30%;
+}
+.matFormCardTitle{
+    color: rgb(148, 224, 34)  ;
+}
+.matSubmitButton{
+    background-color: rgb(51, 145, 93);
+    color:rgb(148, 224, 34);
+}
+.matGalleryCard{
+    background-color: mediumseagreen;
+    width: 50%;
+    margin-left: 25%;
+}
+.matGalleryCardTitle{
+    color: rgb(148, 224, 34)  ;
+}
+table {
+    width: 100%;
+    margin-top:00pt;
+    background-color: rgb(51, 150, 95);
+}
+th {
+    color: black;
+    background-color:rgb(51, 150, 95);
+}
+td {
+    background-color: rgb(51, 150, 95);
+    color: white;
+}
+img{
+    height: 70px;
+    width: 150px;
+}
+.search-gallery{
+    width: 100%;
+}
